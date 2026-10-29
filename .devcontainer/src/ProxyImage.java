@@ -8,5 +8,9 @@ public class ProxyImage implements Image {
 
     @Override
     public void display() {
+        if (realImage == null) {
+            realImage = new RealImage(filename); // Carga la imagen solo cuando es necesario
+        }
+        realImage.display(); // Delega la ejecución al objeto real
     }
 }
